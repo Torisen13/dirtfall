@@ -11,7 +11,7 @@ import net.minecraftforge.fml.RegistryObject;
 
 import java.util.function.Supplier;
 
-public class ExampleBlock {
+public class ModBlocks {
     public static final RegistryObject<Block> EXAMPLE_ORE = registerWithItem("example_ore", () ->
             new Block(AbstractBlock.Properties.create(Material.ROCK).hardnessAndResistance(3, 10).harvestLevel(2).sound(SoundType.STONE)));
 
