@@ -7,31 +7,41 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 
 import java.util.function.Supplier;
 
 public class ModBlocks {
-    public static final RegistryObject<Block> EXAMPLE_ORE = registerWithItem("example_ore", () ->
-            new Block(AbstractBlock.Properties.create(Material.ROCK).hardnessAndResistance(3, 10).harvestLevel(2).sound(SoundType.STONE)));
+    public static final RegistryObject<Block> EXAMPLE_ORE = registerBlockWithBlockItem(
+            "example_ore",
+            () -> new Block(AbstractBlock.Properties
+                    .create(Material.ROCK)
+                    .hardnessAndResistance(3, 10)
+                    .harvestLevel(2)
+                    .sound(SoundType.STONE)
+                    .harvestTool(ToolType.PICKAXE)),
+            ItemGroup.BUILDING_BLOCKS);
 
-    public static final RegistryObject<Block> EXAMPLE_BLOCK = registerWithItem("example_block", () ->
-            new Block(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(3, 10).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> EXAMPLE_BLOCK = registerBlockWithBlockItem(
+            "example_block",
+            () -> new Block(AbstractBlock.Properties
+                    .create(Material.IRON)
+                    .hardnessAndResistance(3, 10)
+                    .sound(SoundType.METAL)
+                    .harvestTool(ToolType.AXE)),
+            ItemGroup.MISC);
 
     static void register() {}
 
-    private static <T extends Block> RegistryObject<T> registerNoItem(String name, Supplier<T> block) {
-        return Registration.BLOCKS.register(name, block);
+    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
+        RegistryObject<T> newBlock = Registration.BLOCKS.register(name, block);
+        return newBlock;
     }
 
-    // TODO: Fix this, it keeps getting null as ret, and then trying to .get() the null object
-    private static <T extends Block> RegistryObject<T> registerWithItem(String name, Supplier<T> block) {
-        RegistryObject<T> ret = registerNoItem(name, block);
-        if (ret.isPresent()) {
-            Registration.ITEMS.register(name, () -> new BlockItem(ret.get(), new Item.Properties().group(ItemGroup.MISC)));
-        } else {
-            System.err.format("Could not register ItemBlock for block '%s': RegistryObject is not Present\n", name);
-        }
-        return ret;
+    private static <T extends Block> RegistryObject<T> registerBlockWithBlockItem(String name, Supplier<T> block, ItemGroup itemGroup) {
+        RegistryObject<T> newBlock = registerBlock(name, block);
+        Registration.ITEMS.register(name, () -> new BlockItem(newBlock.get(), new Item.Properties().group(itemGroup)));
+        return newBlock;
     }
 }

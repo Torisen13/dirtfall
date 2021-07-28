@@ -39,6 +39,9 @@ public class Dirtfall {
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
+        // Register all of our blocks and items
+        Registration.register();
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -80,7 +83,8 @@ public class Dirtfall {
     public static class RegistryEvents {
         @SubscribeEvent
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
-            Registration.register();
+            // Actually, we don't register blocks and items here, that's done in the class construction for some reason
+            LOGGER.info("HELLO from Registry Block");
         }
     }
 }
