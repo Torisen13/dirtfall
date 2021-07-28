@@ -1,3 +1,5 @@
 {
-  "item.dirtfall.example_item": "Example Item"
+  "item.dirtfall.example_item": "Example Item",
+  "block.dirtfall.example_ore": "Example Ore",
+  "block.dirtfall.example_block": "Example Block"
 }
