@@ -13,6 +13,7 @@ import net.minecraftforge.fml.RegistryObject;
 import java.util.function.Supplier;
 
 public class ModBlocks {
+    // Creates a Block named EXAMPLE_ORE
     public static final RegistryObject<Block> EXAMPLE_ORE = registerBlockWithBlockItem(
             "example_ore",
             () -> new Block(AbstractBlock.Properties
@@ -23,12 +24,13 @@ public class ModBlocks {
                     .harvestTool(ToolType.PICKAXE)),
             ItemGroup.BUILDING_BLOCKS);
 
+    // Creates a Block named EXAMPLE_BLOCK
     public static final RegistryObject<Block> EXAMPLE_BLOCK = registerBlockWithBlockItem(
             "example_block",
             () -> new Block(AbstractBlock.Properties
-                    .create(Material.IRON)
+                    .create(Material.WOOD)
                     .hardnessAndResistance(3, 10)
-                    .sound(SoundType.METAL)
+                    .sound(SoundType.WOOD)
                     .harvestTool(ToolType.AXE)),
             ItemGroup.MISC);
 

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "dirtfall:example_ore",
+    "#forge:ores/example",
+    "#forge:storage_blocks/example"
+  ]
+}

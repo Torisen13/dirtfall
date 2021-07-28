@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "dirtfall:block/example_block"
+    }
+  }
+}
