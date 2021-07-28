@@ -20,5 +20,6 @@ public class Registration {
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
         ExampleItem.register();
+        ExampleBlock.register();
     }
 }

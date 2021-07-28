@@ -8,5 +8,5 @@ public class ExampleItem {
     public static final RegistryObject<Item> EXAMPLE_ITEM = Registration.ITEMS.register("example_item", () ->
         new Item(new Item.Properties().group(ItemGroup.MISC)));
 
-    static void register() {};
+    static void register() {}
 }
