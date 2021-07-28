@@ -18,7 +18,14 @@ public final class DataGenerators {
         DataGenerator gen = gatherDataEvent.getGenerator();
         ExistingFileHelper exFileHelper = gatherDataEvent.getExistingFileHelper();
 
+        // Generate JSON files for the assets referenced in these classes
         gen.addProvider(new ModBlockStateProvider(gen, exFileHelper));
         gen.addProvider(new ModItemModelProvider(gen, exFileHelper));
+
+        ModBlockTagsProvider blockTags = new ModBlockTagsProvider(gen, exFileHelper);
+
+        // Tag modded objects
+        gen.addProvider(blockTags);
+        gen.addProvider(new ModItemTagsProvider(gen, blockTags, exFileHelper));
     }
 }
