@@ -27,5 +27,11 @@ public final class DataGenerators {
         // Tag modded objects
         gen.addProvider(blockTags);
         gen.addProvider(new ModItemTagsProvider(gen, blockTags, exFileHelper));
+
+        // Generates the loot table for the mod
+        gen.addProvider(new ModLootTableProvider(gen));
+
+        // Generates the list of crafting recipes for the mod
+        gen.addProvider(new ModRecipeProvider(gen));
     }
 }
