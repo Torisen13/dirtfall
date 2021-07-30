@@ -35,17 +35,18 @@ public class ModLootTableProvider extends LootTableProvider {
         );
     }
 
+    // Boilerplate
     @Override
     protected void validate(Map<ResourceLocation, LootTable> map, ValidationTracker validationtracker) {
-        map.forEach((p_218436_2_, p_218436_3_) -> LootTableManager.validateLootTable(validationtracker, p_218436_2_, p_218436_3_));
+        map.forEach((p_218436_2_, p_218436_3_) -> LootTableManager.validate(validationtracker, p_218436_2_, p_218436_3_));
     }
 
     public static class ModBlockLootTables extends BlockLootTables {
         @Override
         protected void addTables() {
             // Basic behavior, mining these blocks causes an instance of the block to drop
-            registerDropSelfLootTable(ModBlocks.EXAMPLE_ORE.get());
-            registerDropSelfLootTable(ModBlocks.EXAMPLE_BLOCK.get());
+            dropSelf(ModBlocks.EXAMPLE_ORE.get());
+            dropSelf(ModBlocks.EXAMPLE_BLOCK.get());
         }
 
         @Override

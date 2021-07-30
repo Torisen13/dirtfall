@@ -17,22 +17,23 @@ public class ModBlocks {
     public static final RegistryObject<Block> EXAMPLE_ORE = registerBlockWithBlockItem(
             "example_ore",
             () -> new Block(AbstractBlock.Properties
-                    .create(Material.ROCK)
-                    .hardnessAndResistance(3, 10)
+                    .of(Material.STONE)
+                    .strength(3, 10)
                     .harvestLevel(2)
                     .sound(SoundType.STONE)
+                    .requiresCorrectToolForDrops()
                     .harvestTool(ToolType.PICKAXE)),
-            ItemGroup.BUILDING_BLOCKS);
+            ItemGroup.TAB_BUILDING_BLOCKS);
 
     // Creates a Block named EXAMPLE_BLOCK
     public static final RegistryObject<Block> EXAMPLE_BLOCK = registerBlockWithBlockItem(
             "example_block",
             () -> new Block(AbstractBlock.Properties
-                    .create(Material.WOOD)
-                    .hardnessAndResistance(3, 10)
+                    .of(Material.WOOD)
+                    .strength(3, 10)
                     .sound(SoundType.WOOD)
                     .harvestTool(ToolType.AXE)),
-            ItemGroup.MISC);
+            ItemGroup.TAB_MISC);
 
     static void register() {}
 
@@ -43,7 +44,7 @@ public class ModBlocks {
 
     private static <T extends Block> RegistryObject<T> registerBlockWithBlockItem(String name, Supplier<T> block, ItemGroup itemGroup) {
         RegistryObject<T> newBlock = registerBlock(name, block);
-        Registration.ITEMS.register(name, () -> new BlockItem(newBlock.get(), new Item.Properties().group(itemGroup)));
+        Registration.ITEMS.register(name, () -> new BlockItem(newBlock.get(), new Item.Properties().tab(itemGroup)));
         return newBlock;
     }
 }

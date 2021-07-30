@@ -16,7 +16,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     }
 
     @Override
-    protected void registerTags() {
+    protected void addTags() {
         // Copy the Block tags onto the BlockItem
         copy(ModTags.Blocks.ORES_EXAMPLE, ModTags.Items.ORES_EXAMPLE);
         copy(ModTags.Blocks.STORAGE_BLOCKS_EXAMPLE, ModTags.Items.STORAGE_BLOCKS_EXAMPLE);
@@ -26,9 +26,9 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         copy(Tags.Blocks.ORES, ModTags.Items.STORAGE_BLOCKS_EXAMPLE);
 
         // Attach each Item tag to the corresponding Item
-        getOrCreateBuilder(ModTags.Items.ITEMS_EXAMPLE).add(ModItems.EXAMPLE_ITEM.get());
+        tag(ModTags.Items.ITEMS_EXAMPLE).add(ModItems.EXAMPLE_ITEM.get());
 
         // Add any generic tags onto the Items
-        getOrCreateBuilder(Tags.Items.CROPS_WHEAT).addTag(ModTags.Items.ITEMS_EXAMPLE);
+        tag(Tags.Items.CROPS_WHEAT).addTag(ModTags.Items.ITEMS_EXAMPLE);
     }
 }

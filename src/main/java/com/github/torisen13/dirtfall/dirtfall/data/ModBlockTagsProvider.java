@@ -15,13 +15,13 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     }
 
     @Override
-    protected void registerTags() {
+    protected void addTags() {
         // Attach each Block tag to the corresponding Block
-        getOrCreateBuilder(ModTags.Blocks.ORES_EXAMPLE).add(ModBlocks.EXAMPLE_ORE.get());
-        getOrCreateBuilder(ModTags.Blocks.STORAGE_BLOCKS_EXAMPLE).add(ModBlocks.EXAMPLE_BLOCK.get());
+        tag(ModTags.Blocks.ORES_EXAMPLE).add(ModBlocks.EXAMPLE_ORE.get());
+        tag(ModTags.Blocks.STORAGE_BLOCKS_EXAMPLE).add(ModBlocks.EXAMPLE_BLOCK.get());
 
         // Add existing generic "ORES" tags to our ores
-        getOrCreateBuilder(Tags.Blocks.ORES).addTag(ModTags.Blocks.ORES_EXAMPLE);
-        getOrCreateBuilder(Tags.Blocks.ORES).addTag(ModTags.Blocks.STORAGE_BLOCKS_EXAMPLE);
+        tag(Tags.Blocks.ORES).addTag(ModTags.Blocks.ORES_EXAMPLE);
+        tag(Tags.Blocks.ORES).addTag(ModTags.Blocks.STORAGE_BLOCKS_EXAMPLE);
     }
 }
