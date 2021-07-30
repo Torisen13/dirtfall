@@ -15,7 +15,7 @@ public class ModTags {
 
         // Creates a new WrapperTag when given a namespace and path
         private static ITag.INamedTag<Block> makeBlockWrapperTag(String namespace, String path) {
-            return BlockTags.makeWrapperTag(new ResourceLocation(namespace, path).toString());
+            return BlockTags.bind(new ResourceLocation(namespace, path).toString());
         }
     }
 
@@ -29,7 +29,7 @@ public class ModTags {
 
         // Creates a new WrapperTag when given a namespace and path
         private static ITag.INamedTag<Item> makeItemWrapperTag(String namespace, String path) {
-            return ItemTags.makeWrapperTag(new ResourceLocation(namespace, path).toString());
+            return ItemTags.bind(new ResourceLocation(namespace, path).toString());
         }
     }
 }
