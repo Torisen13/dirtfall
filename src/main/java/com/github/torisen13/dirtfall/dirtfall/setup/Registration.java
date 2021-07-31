@@ -2,26 +2,46 @@ package com.github.torisen13.dirtfall.dirtfall.setup;
 
 import com.github.torisen13.dirtfall.dirtfall.Dirtfall;
 import net.minecraft.block.Block;
+import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 
 public class Registration {
     // Creates a DeferredRegistry for Blocks and Items
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Dirtfall.MOD_ID);
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Dirtfall.MOD_ID);
+    public static final DeferredRegister<Block> BLOCKS = createDeferredRegister(ForgeRegistries.BLOCKS);
+    public static final DeferredRegister<Item> ITEMS = createDeferredRegister(ForgeRegistries.ITEMS);
+
+    // Create generic DeferredRegistry Types, wildcarded type
+    public static final DeferredRegister<ContainerType<?>> CONTAINERS = createDeferredRegister(ForgeRegistries.CONTAINERS);
+    public static final DeferredRegister<TileEntityType<?>> TILE_ENTITIES = createDeferredRegister(ForgeRegistries.TILE_ENTITIES);
+    public static final DeferredRegister<IRecipeSerializer<?>> RECIPE_SERIALIZERS = createDeferredRegister(ForgeRegistries.RECIPE_SERIALIZERS);
+
+    // Helper method to create DeferredRegistries when provided a ForgeRegistries.<TYPE>
+    private static <T extends IForgeRegistryEntry<T>> DeferredRegister<T> createDeferredRegister(IForgeRegistry<T> registryType) {
+        return DeferredRegister.create(registryType, Dirtfall.MOD_ID);
+    }
 
     public static void register() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        // Register our DeferredRegistries
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
+        CONTAINERS.register(modEventBus);
+        TILE_ENTITIES.register(modEventBus);
+        RECIPE_SERIALIZERS.register(modEventBus);
 
-        // Registers out modded Items
+        // Register our modded stuff
         ModItems.register();
-
-        // Registers our modded Blocks
         ModBlocks.register();
+        ModContainerTypes.register();
+        ModTileEntityTypes.register();
+        ModRecipeSerializers.register();
     }
 }

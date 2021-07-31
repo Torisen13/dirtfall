@@ -1,5 +1,6 @@
 package com.github.torisen13.dirtfall.dirtfall.setup;
 
+import com.github.torisen13.dirtfall.dirtfall.block.metalpress.MetalPressBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -33,6 +34,15 @@ public class ModBlocks {
                     .strength(3, 10)
                     .sound(SoundType.WOOD)
                     .harvestTool(ToolType.AXE)),
+            ItemGroup.TAB_MISC);
+
+    // Create a Block named METAL_PRESS
+    public static final RegistryObject<MetalPressBlock> METAL_PRESS = registerBlockWithBlockItem(
+            "metal_press",
+            () -> new MetalPressBlock(AbstractBlock.Properties
+                    .of(Material.METAL)
+                    .strength(4, 20)
+                    .sound(SoundType.METAL)),
             ItemGroup.TAB_MISC);
 
     static void register() {}
