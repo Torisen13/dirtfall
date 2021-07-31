@@ -49,6 +49,9 @@ public class ModLootTableProvider extends LootTableProvider {
             dropSelf(ModBlocks.EXAMPLE_ORE.get());
             dropSelf(ModBlocks.EXAMPLE_BLOCK.get());
             dropSelf(ModBlocks.METAL_PRESS.get());
+
+            // Attempt to override vanilla blocks (apparently Dirt doesn't use a BlockLootTable)
+            //dropSelf(ModBlocks.DIRT.get());
         }
 
         @Override
