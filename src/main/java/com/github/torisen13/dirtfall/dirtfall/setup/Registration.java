@@ -32,14 +32,27 @@ public class Registration {
         return DeferredRegister.create(registryType, Dirtfall.MOD_ID);
     }
 
+    // Attempt to override vanilla blocks
+    public static final DeferredRegister<Item> OVERRIDE_ITEMS = createOverrideDeferredRegister(ForgeRegistries.ITEMS);
+    public static final DeferredRegister<Block> OVERRIDE_BLOCKS = createOverrideDeferredRegister(ForgeRegistries.BLOCKS);
+
+    // Helper method to create DeferredRegistries that override vanilla registries when provided a ForgeRegistries.<TYPE>
+    private static <T extends IForgeRegistryEntry<T>> DeferredRegister<T> createOverrideDeferredRegister(IForgeRegistry<T> registryType) {
+        return DeferredRegister.create(registryType, "minecraft");
+    }
+
     public static void register() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        // Register our DeferredRegistries
+        // Register our DeferredRegistries to add new stuff
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
         CONTAINERS.register(modEventBus);
         TILE_ENTITIES.register(modEventBus);
         RECIPE_SERIALIZERS.register(modEventBus);
+
+        // Attempt to register our OverrideDeferredRegistries to modify vanilla stuff
+        OVERRIDE_ITEMS.register(modEventBus);
+        OVERRIDE_BLOCKS.register(modEventBus);
 
         // Register our modded stuff
         ModItems.register();
