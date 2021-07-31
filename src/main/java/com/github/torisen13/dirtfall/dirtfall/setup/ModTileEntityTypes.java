@@ -9,16 +9,21 @@ import net.minecraftforge.fml.RegistryObject;
 import java.util.function.Supplier;
 
 public class ModTileEntityTypes {
-    static void register() {}
-
+    // Creates a TileEntity named METAL_PRESS
     public static final RegistryObject<TileEntityType<MetalPressTileEntity>> METAL_PRESS = register(
             "metal_press",
             MetalPressTileEntity::new,
             ModBlocks.METAL_PRESS
     );
 
-    private static <T extends TileEntity> RegistryObject<TileEntityType<T>> register(String name, Supplier<T> factory, RegistryObject<? extends Block> block) {
+    static void register() {}
+
+    // Helper method to register TileEntity objects
+    private static <T extends TileEntity> RegistryObject<TileEntityType<T>> register(String name,
+                                                                                     Supplier<T> factory,
+                                                                                     RegistryObject<? extends Block> block) {
         return Registration.TILE_ENTITIES.register(name, () -> {
+            // Comment to suppress the warning about passing null
             //noinspection ConstantConditions
             return TileEntityType.Builder.of(factory, block.get()).build(null);
         });

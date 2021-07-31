@@ -47,11 +47,13 @@ public class ModBlocks {
 
     static void register() {}
 
+    // Helper method to register a Block
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> newBlock = Registration.BLOCKS.register(name, block);
         return newBlock;
     }
 
+    // Helper method to register a Block with a corresponding BlockItem (this one gets used more frequently)
     private static <T extends Block> RegistryObject<T> registerBlockWithBlockItem(String name, Supplier<T> block, ItemGroup itemGroup) {
         RegistryObject<T> newBlock = registerBlock(name, block);
         Registration.ITEMS.register(name, () -> new BlockItem(newBlock.get(), new Item.Properties().tab(itemGroup)));

@@ -54,6 +54,7 @@ public class MetalPressBlock extends Block {
         return ActionResultType.CONSUME;
     }
 
+    // Method called (server side) when the block is interacted with
     private void interactWith(World world, BlockPos pos, PlayerEntity player) {
         TileEntity tileEntity = world.getBlockEntity(pos);
         if (tileEntity instanceof MetalPressTileEntity && player instanceof ServerPlayerEntity) {
