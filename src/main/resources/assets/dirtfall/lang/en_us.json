@@ -1,5 +1,7 @@
 {
   "item.dirtfall.example_item": "Example Item",
   "block.dirtfall.example_ore": "Example Ore",
-  "block.dirtfall.example_block": "Example Block"
+  "block.dirtfall.example_block": "Example Block",
+  "block.dirtfall.metal_press": "Metal Press",
+  "container.dirtfall.metal_press": "Metal Press"
 }

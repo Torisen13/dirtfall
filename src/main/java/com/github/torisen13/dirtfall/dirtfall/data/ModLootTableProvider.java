@@ -41,12 +41,14 @@ public class ModLootTableProvider extends LootTableProvider {
         map.forEach((p_218436_2_, p_218436_3_) -> LootTableManager.validate(validationtracker, p_218436_2_, p_218436_3_));
     }
 
+    // Defines the loot tables for modded blocks
     public static class ModBlockLootTables extends BlockLootTables {
         @Override
         protected void addTables() {
             // Basic behavior, mining these blocks causes an instance of the block to drop
             dropSelf(ModBlocks.EXAMPLE_ORE.get());
             dropSelf(ModBlocks.EXAMPLE_BLOCK.get());
+            dropSelf(ModBlocks.METAL_PRESS.get());
         }
 
         @Override

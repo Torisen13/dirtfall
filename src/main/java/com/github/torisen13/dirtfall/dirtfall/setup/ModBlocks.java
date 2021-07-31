@@ -1,5 +1,6 @@
 package com.github.torisen13.dirtfall.dirtfall.setup;
 
+import com.github.torisen13.dirtfall.dirtfall.block.metalpress.MetalPressBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -35,13 +36,24 @@ public class ModBlocks {
                     .harvestTool(ToolType.AXE)),
             ItemGroup.TAB_MISC);
 
+    // Create a Block named METAL_PRESS
+    public static final RegistryObject<MetalPressBlock> METAL_PRESS = registerBlockWithBlockItem(
+            "metal_press",
+            () -> new MetalPressBlock(AbstractBlock.Properties
+                    .of(Material.METAL)
+                    .strength(4, 20)
+                    .sound(SoundType.METAL)),
+            ItemGroup.TAB_MISC);
+
     static void register() {}
 
+    // Helper method to register a Block
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> newBlock = Registration.BLOCKS.register(name, block);
         return newBlock;
     }
 
+    // Helper method to register a Block with a corresponding BlockItem (this one gets used more frequently)
     private static <T extends Block> RegistryObject<T> registerBlockWithBlockItem(String name, Supplier<T> block, ItemGroup itemGroup) {
         RegistryObject<T> newBlock = registerBlock(name, block);
         Registration.ITEMS.register(name, () -> new BlockItem(newBlock.get(), new Item.Properties().tab(itemGroup)));
