@@ -3,6 +3,7 @@ package com.github.torisen13.dirtfall.dirtfall.setup;
 import com.github.torisen13.dirtfall.dirtfall.block.metalpress.MetalPressBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.FallingBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -48,7 +49,7 @@ public class ModBlocks {
 
     // Attempting to override a vanilla block
     public static final RegistryObject<Block> DIRT = registerOverrideBlockWithBlockItem("dirt",
-            () -> new Block(AbstractBlock.Properties
+            () -> new FallingBlock(AbstractBlock.Properties
                     .of(Material.DIRT, MaterialColor.DIRT)
                     .strength(0.5F)
                     .sound(SoundType.GLASS)),
