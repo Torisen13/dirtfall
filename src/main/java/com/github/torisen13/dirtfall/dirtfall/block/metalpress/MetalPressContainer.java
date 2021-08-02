@@ -1,5 +1,6 @@
 package com.github.torisen13.dirtfall.dirtfall.block.metalpress;
 
+import com.github.torisen13.dirtfall.dirtfall.MathCraft;
 import com.github.torisen13.dirtfall.dirtfall.setup.ModContainerTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -36,19 +37,19 @@ public class MetalPressContainer extends Container {
         });
 
         // Represents the Player's Backpack
-        for (int y = 0; y < 3; ++y) {
-            for (int x = 0; x < 9; ++x) {
+        for (int y = 0; y < MathCraft.PLAYER_INVENTORY_SIZE_Y; ++y) {
+            for (int x = 0; x < MathCraft.PLAYER_INVENTORY_SIZE_X; ++x) {
                 int index = x + y * 9;
-                int posX = 8 + x * 18;
-                int posY = 84 + y * 18;
+                int posX = 8 + x * MathCraft.GUI_SLOT_PIXEL_WIDTH;
+                int posY = 84 + y * MathCraft.GUI_SLOT_PIXEL_WIDTH;
 
                 this.addSlot(new Slot(playerInventory, index, posX, posY));
             }
         }
 
         // Represents the Player's hotbar
-        for (int x = 0; x < 9; ++x) {
-            int posX = 8 + x * 18;
+        for (int x = 0; x < MathCraft.PLAYER_INVENTORY_SIZE_X; ++x) {
+            int posX = 8 + x * MathCraft.GUI_SLOT_PIXEL_WIDTH;
             int posY = 84 + 58;
             this.addSlot(new Slot(playerInventory, x, posX, posY));
         }
