@@ -50,7 +50,7 @@ public class Registration {
         TILE_ENTITIES.register(modEventBus);
         RECIPE_SERIALIZERS.register(modEventBus);
 
-        // Attempt to register our OverrideDeferredRegistries to modify vanilla stuff
+        // Register our OverrideDeferredRegistries to modify vanilla stuff
         OVERRIDE_ITEMS.register(modEventBus);
         OVERRIDE_BLOCKS.register(modEventBus);
 
@@ -60,6 +60,9 @@ public class Registration {
         ModContainerTypes.register();
         ModTileEntityTypes.register();
         ModRecipes.register();
+
+        // Register and vanilla overrides
+        VanillaBlocks.register();
     }
 
     @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = Dirtfall.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)

@@ -1,7 +1,7 @@
 package com.github.torisen13.dirtfall.dirtfall.block.metalpress;
 
 import com.github.torisen13.dirtfall.dirtfall.Dirtfall;
-import com.github.torisen13.dirtfall.dirtfall.crafting.GenericCraftingHelper;
+import com.github.torisen13.dirtfall.dirtfall.MathCraft;
 import com.github.torisen13.dirtfall.dirtfall.crafting.recipe.PressingRecipe;
 import com.github.torisen13.dirtfall.dirtfall.setup.ModRecipes;
 import com.github.torisen13.dirtfall.dirtfall.setup.ModTileEntityTypes;
@@ -19,12 +19,10 @@ import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.LockableTileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.IIntArray;
-import net.minecraft.util.IntArray;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
@@ -33,8 +31,8 @@ import net.minecraftforge.items.wrapper.SidedInvWrapper;
 import javax.annotation.Nullable;
 
 public class MetalPressTileEntity extends LockableTileEntity implements ISidedInventory, ITickableTileEntity {
-    // The total time it takes (in ticks) to finish a job
-    static final int WORK_TIME = GenericCraftingHelper.secondsToTicks(5);
+    // The total time it takes (in ticks) to finish a job using this entity
+    static final int WORK_TIME = MathCraft.secondsToTicks(5);
 
     // An incrementing counter used to track progress
     private int progress = 0;
