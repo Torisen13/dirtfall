@@ -6,6 +6,8 @@ import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.world.gen.blockplacer.BlockPlacerType;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -21,6 +23,7 @@ public class Registration {
     // Creates a DeferredRegistry for Blocks and Items
     public static final DeferredRegister<Block> BLOCKS = createDeferredRegister(ForgeRegistries.BLOCKS);
     public static final DeferredRegister<Item> ITEMS = createDeferredRegister(ForgeRegistries.ITEMS);
+    public static final DeferredRegister<SurfaceBuilder<?>> SURFACE_BUILDERS = createDeferredRegister(ForgeRegistries.SURFACE_BUILDERS);
 
     // Create generic DeferredRegistry Types, wildcarded type
     public static final DeferredRegister<ContainerType<?>> CONTAINERS = createDeferredRegister(ForgeRegistries.CONTAINERS);
@@ -53,6 +56,7 @@ public class Registration {
         // Register our OverrideDeferredRegistries to modify vanilla stuff
         OVERRIDE_ITEMS.register(modEventBus);
         OVERRIDE_BLOCKS.register(modEventBus);
+        SURFACE_BUILDERS.register(modEventBus);
 
         // Register our modded stuff
         ModItems.register();
@@ -60,6 +64,7 @@ public class Registration {
         ModContainerTypes.register();
         ModTileEntityTypes.register();
         ModRecipes.register();
+        //ModSurfaceBuilders.register();
 
         // Register and vanilla overrides
         VanillaBlocks.register();

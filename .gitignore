@@ -1,3 +1,6 @@
+#Ignore transitory items in dev
+src/generated/*
+
 # User-specific stuff
 .idea/
 .cache/

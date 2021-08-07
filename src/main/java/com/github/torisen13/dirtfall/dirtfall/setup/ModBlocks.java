@@ -37,7 +37,7 @@ public class ModBlocks {
                     .sound(SoundType.WOOD)
                     .harvestTool(ToolType.AXE)),
             ItemGroup.TAB_MISC);
-
+    
     // Create a Block named METAL_PRESS
     public static final RegistryObject<MetalPressBlock> METAL_PRESS = registerBlockWithBlockItem(
             "metal_press",

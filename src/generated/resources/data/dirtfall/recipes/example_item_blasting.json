@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "item": "dirtfall:example_ore"
-  },
-  "result": "dirtfall:example_item",
-  "experience": 0.7,
-  "cookingtime": 200
-}

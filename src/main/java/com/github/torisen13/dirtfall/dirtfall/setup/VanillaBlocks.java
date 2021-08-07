@@ -8,6 +8,7 @@ import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.util.registry.MutableRegistry;
 import net.minecraftforge.fml.RegistryObject;
 
 import java.util.function.Supplier;
