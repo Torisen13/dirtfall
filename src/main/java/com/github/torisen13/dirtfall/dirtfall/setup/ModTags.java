@@ -19,6 +19,17 @@ public class ModTags {
         }
     }
 
+    public static final class VanillaBlocks {
+        // These are the tags created for the Blocks in the mod
+        public static final ITag.INamedTag<Block> OVERWRITE_DIRT = makeBlockWrapperTag("minecraft", "dirt");
+
+        // Creates a new WrapperTag when given a namespace and path
+        private static ITag.INamedTag<Block> makeBlockWrapperTag(String namespace, String path) {
+            return BlockTags.bind(new ResourceLocation(namespace, path).toString());
+        }
+    }
+
+
     public static final class Items {
         // These are the tags created for the BlockItems in the mod
         public static final ITag.INamedTag<Item> ORES_EXAMPLE = makeItemWrapperTag("forge", "ores/example");

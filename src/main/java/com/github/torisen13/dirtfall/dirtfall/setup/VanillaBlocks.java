@@ -1,9 +1,7 @@
 package com.github.torisen13.dirtfall.dirtfall.setup;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.FallingBlock;
-import net.minecraft.block.SoundType;
+import com.github.torisen13.dirtfall.dirtfall.block.basic.DirtBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
@@ -16,11 +14,12 @@ import java.util.function.Supplier;
 public class VanillaBlocks {
     // Override dirt block
     public static final RegistryObject<Block> DIRT = registerOverrideBlockWithBlockItem("dirt",
-            () -> new FallingBlock(AbstractBlock.Properties
+            () -> new DirtBlock(8672290, AbstractBlock.Properties
                     .of(Material.DIRT, MaterialColor.DIRT)
                     .strength(0.5F)
                     .sound(SoundType.GLASS)),
             ItemGroup.TAB_BUILDING_BLOCKS);
+
 
     static void register() {}
 

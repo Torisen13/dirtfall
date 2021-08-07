@@ -3,6 +3,7 @@ package com.github.torisen13.dirtfall.dirtfall.data;
 import com.github.torisen13.dirtfall.dirtfall.Dirtfall;
 import com.github.torisen13.dirtfall.dirtfall.setup.ModBlocks;
 import com.github.torisen13.dirtfall.dirtfall.setup.ModTags;
+import com.github.torisen13.dirtfall.dirtfall.setup.VanillaBlocks;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.Tags;
@@ -19,6 +20,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         // Attach each Block tag to the corresponding Block
         tag(ModTags.Blocks.ORES_EXAMPLE).add(ModBlocks.EXAMPLE_ORE.get());
         tag(ModTags.Blocks.STORAGE_BLOCKS_EXAMPLE).add(ModBlocks.EXAMPLE_BLOCK.get());
+        tag(ModTags.VanillaBlocks.OVERWRITE_DIRT).add(VanillaBlocks.DIRT.get());
 
         // Add existing generic "ORES" tags to our ores
         tag(Tags.Blocks.ORES).addTag(ModTags.Blocks.ORES_EXAMPLE);
