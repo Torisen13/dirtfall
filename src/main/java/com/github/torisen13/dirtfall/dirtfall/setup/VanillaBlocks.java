@@ -1,5 +1,6 @@
 package com.github.torisen13.dirtfall.dirtfall.setup;
 
+import com.github.torisen13.dirtfall.dirtfall.ColorWheel;
 import com.github.torisen13.dirtfall.dirtfall.block.basic.DirtBlock;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
@@ -14,7 +15,7 @@ import java.util.function.Supplier;
 public class VanillaBlocks {
     // Override dirt block
     public static final RegistryObject<Block> DIRT = registerOverrideBlockWithBlockItem("dirt",
-            () -> new DirtBlock(8672290, AbstractBlock.Properties
+            () -> new DirtBlock(ColorWheel.BROWN, AbstractBlock.Properties
                     .of(Material.DIRT, MaterialColor.DIRT)
                     .strength(0.5F)
                     .sound(SoundType.GLASS)),
