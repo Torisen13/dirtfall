@@ -20,7 +20,10 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         // Attach each Block tag to the corresponding Block
         tag(ModTags.Blocks.ORES_EXAMPLE).add(ModBlocks.EXAMPLE_ORE.get());
         tag(ModTags.Blocks.STORAGE_BLOCKS_EXAMPLE).add(ModBlocks.EXAMPLE_BLOCK.get());
+
+        // Override Vanilla Block tagging
         tag(ModTags.VanillaBlocks.OVERWRITE_DIRT).add(VanillaBlocks.DIRT.get());
+        tag(ModTags.VanillaBlocks.FORGE_DIRT).add(VanillaBlocks.DIRT.get());
 
         // Add existing generic "ORES" tags to our ores
         tag(Tags.Blocks.ORES).addTag(ModTags.Blocks.ORES_EXAMPLE);

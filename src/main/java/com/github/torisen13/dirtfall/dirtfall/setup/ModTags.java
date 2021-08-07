@@ -22,6 +22,7 @@ public class ModTags {
     public static final class VanillaBlocks {
         // These are the tags created for the Blocks in the mod
         public static final ITag.INamedTag<Block> OVERWRITE_DIRT = makeBlockWrapperTag("minecraft", "dirt");
+        public static final ITag.INamedTag<Block> FORGE_DIRT = makeBlockWrapperTag("forge", "dirt");
 
         // Creates a new WrapperTag when given a namespace and path
         private static ITag.INamedTag<Block> makeBlockWrapperTag(String namespace, String path) {
